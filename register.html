@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      label {
+        display: inline-block;
+        width: 120px;
+      }
+    </style>
+</head>
+<body>
+  <fieldset id="fidset">
+    <legend>Registration</legend>
+    <form action="register.php" method="post">
+      <label for="customerid">Customer ID:</label>
+      <input type="text" id="customerid" name="customerid" required placeholder="Customer ID"/><br><br>
+      <label for="firstname">Firstname:</label>
+      <input type="text" id="firstname" name="firstname" required placeholder="Firstname"/><br><br>
+      <label for="lastname">Lastname:</label>
+      <input type="text" id="lastname" name="lastname" required placeholder="Last Name"/><br><br>
+      <label for="gender">Gender:</label>
+      <select id="gender" onchange="alert(this.value)" name="gender" required>
+        <!--<option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>-->
+        <option value="0">Select... </option>
+        <option value="F">Female</option>
+        <option value="M">Male</option>
+      </select><br><br>
+      <label for="dob">DoB:</label>
+      <input type="date" id="dob" name="dob" required><br><br>  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Email"><br><br>
+      <label>Marital Status:</label>
+      <label for="single">Single</label>
+      <input type="radio" id="single" name="maritalstatus" value="S" required>
+      <label for="married">Married</label>
+      <input type="radio" id="married" name="maritalstatus" value="M" required>
+      <label for="divorced">Divorced</label>
+      <input type="radio" id="divorced" name="maritalstatus" value="D" required>
+      <label for="widowed">Widowed</label>
+      <input type="radio" id="widowed" name="maritalstatus" value="W" required><br><br>
+      <label for="cellno">Cell Number:</label>
+      <input type="tel" id="cellno" name="cellno" required placeholder="7*******"><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <label for="dateregistered">Date Registered:</label>
+      <input type="date" id="dateregistered" name="dateregistered" required><br><br>
+      <label for="timeregistered">Time Registered:</label>
+      <input type="time" id="timeregistered" name="timeregistered" required><br><br>
+      <label for="country">Country:</label>
+      <select id="country"></select><br><br>
+      <label>Modules:</label>
+      <label for="cms">CMS</label>
+      <input type="checkbox" id="cms" name="modules[]" value="CMS">
+      <label for="wmd">WMD</label>
+      <input type="checkbox" id="wmd" name="modules[]" value="WMD">
+      <label for="c#">C#</label>
+      <input type="checkbox" id="c#" name="modules[]" value="C#"><br><br>
+      <input type="submit" value="Register">
+    </form>
+  </fieldset>
+</body>
 
+<script type="module">
+
+  import data from './countries_data.jason' with {type:'json'};
+  console.log(data);
+  var cbo = document.getElementById("country");
+  //var cbo = document.querySelector("#country");
+
+  //adding data
+  for(var k =  o; k<data.length; k++){
+      var item = data [k];
+      var option = document.createOption();
+      option.Value = item.code;
+      option.textcontent = item.countryname;
+      cbo.appendchild(option);
+
+
+  }
+
+  
+</script>
+</html>
+ 
